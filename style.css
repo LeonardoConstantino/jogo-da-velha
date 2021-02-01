@@ -1,0 +1,35 @@
+*{
+    border: solid 1px black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.centro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section{
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.76);
+}
+#tab{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    background-color: black;
+}
+
+#tab div{
+    width: 150px;
+    height: 150px;
+    background-color: white;
+}
