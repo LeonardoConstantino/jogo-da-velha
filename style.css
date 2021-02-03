@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     background-color: #B6C0D6;
+    font-family: Arial, Helvetica, sans-serif;
     /* box-sizing: border-box; */
 }
 .centro{
@@ -12,6 +13,7 @@
 }
 h1{
     padding: 30px;
+    color: #293F71;
 }
 section{
     background: #9ECECE;
@@ -43,8 +45,8 @@ section{
 
 
 #tab div{
-    width: 146px;
-    height: 146px;
+    width: 145.5px;
+    height: 145.5px;
     background-color: #d4f0f0;
     text-align: center;
     /* display: flex; */
