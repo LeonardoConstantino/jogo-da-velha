@@ -10,6 +10,52 @@
 var tabuleiro = ['L1C1', 'L1C2', 'L1C3', 'L2C1', 'L2C2', 'L2C3', 'L3C1', 'L3C2', 'L3C3']
 var ran = Math.floor(Math.random() * (8 - 0 + 1)) + 0
 var ran2 = Math.floor(Math.random() * (8 - 0 + 1)) + 0
+var cels = document.querySelectorAll('.cels')
+
+var xis = "imagens/xis.png"
+var bola = "imagens/bola.png"
+
+var img
+
+function adicionaXO(celula, xo) {
+    img = document.createElement("img")
+    img.setAttribute("src", xo)
+    celula.appendChild(img)
+    // img.value = ''
+    celula.setAttribute('class', 'naoclik')
+    // if (c0 == 1) {
+    // }
+}
+
+function x0() {
+    adicionaXO(cels[0], xis)
+}
+function x1() {
+    adicionaXO(cels[1], xis)
+}
+function x2() {
+    adicionaXO(cels[2], xis)
+}
+function x3() {
+    adicionaXO(cels[3], xis)
+}
+function x4() {
+    adicionaXO(cels[4], xis)
+}
+function x5() {
+    adicionaXO(cels[5], xis)
+}
+function x6() {
+    adicionaXO(cels[6], xis)
+}
+function x7() {
+    adicionaXO(cels[7], xis)
+}
+function x8() {
+    adicionaXO(cels[8], xis)
+}
+
+// cels[0].addEventListener('click',adicionaXO(cels[0], "imagens/bola.png"))
 
 function jogadaMaquina() {
     console.log(ran)
