@@ -8,8 +8,7 @@
 // linha 3 | L3C1[6]   | L3C2[7]    | L3C3[8]
 
 var tabuleiro = ['L1C1', 'L1C2', 'L1C3', 'L2C1', 'L2C2', 'L2C3', 'L3C1', 'L3C2', 'L3C3']
-var ran = Math.floor(Math.random() * (8 - 0 + 1)) + 0
-var ran2 = Math.floor(Math.random() * (8 - 0 + 1)) + 0
+// var ran = Math.floor(Math.random() * (8 - 0 + 1)) + 0
 var cels = document.querySelectorAll('.cels')
 
 var xis = "imagens/xis.png"
@@ -21,53 +20,84 @@ function adicionaXO(celula, xo) {
     img = document.createElement("img")
     img.setAttribute("src", xo)
     celula.appendChild(img)
-    // img.value = ''
     celula.setAttribute('class', 'naoclik')
-    // if (c0 == 1) {
-    // }
+
 }
 
-function x0() {
-    adicionaXO(cels[0], xis)
+function atualizaTabuleiroX(pos) {
+    tabuleiro[pos] = 'x'
 }
-function x1() {
-    adicionaXO(cels[1], xis)
+
+function x0(cel = '0') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x2() {
-    adicionaXO(cels[2], xis)
+
+function x1(cel = '1') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x3() {
-    adicionaXO(cels[3], xis)
+
+function x2(cel = '2') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x4() {
-    adicionaXO(cels[4], xis)
+
+function x3(cel = '3') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x5() {
-    adicionaXO(cels[5], xis)
+
+function x4(cel = '4') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x6() {
-    adicionaXO(cels[6], xis)
+
+function x5(cel = '5') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x7() {
-    adicionaXO(cels[7], xis)
+
+function x6(cel = '6') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
-function x8() {
-    adicionaXO(cels[8], xis)
+
+function x7(cel = '7') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
+}
+
+function x8(cel = '8') {
+    atualizaTabuleiroX(cel)
+    adicionaXO(cels[cel], xis)
+    conferirGanhador()
 }
 
 // cels[0].addEventListener('click',adicionaXO(cels[0], "imagens/bola.png"))
 
-function jogadaMaquina() {
+function tempomaq() {
+    setTimeout(jogadaMaquina, 500)
+}
+
+function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
     console.log(ran)
-    if(tabuleiro[ran] == 'o'){
+    if(tabuleiro[ran] === 'o'){
         jogadaMaquina()
-    }else if (tabuleiro[ran] == 'x'){
+    }else if (tabuleiro[ran] === 'x'){
         jogadaMaquina()
     }else{
+        adicionaXO(cels[ran], bola)
         tabuleiro[ran] = 'o'
-        // jogadaMaquina2()
     }
-    // conferirGanhador()
 }
 
 // function jogadaMaquina2() {
@@ -144,16 +174,15 @@ function conferirGanhador() {
             console.log('o GANHOU diagonal superior direita')
         }
     }else{
-        jogadaMaquina()
+        tempomaq()
     }
-    
 }
 
-console.log(conferirGanhador())
+// console.log(conferirGanhador())
 
-console.table(tabuleiro)
-console.log(tabuleiro[0], tabuleiro[1], tabuleiro[2])
-console.log(tabuleiro[3], tabuleiro[4], tabuleiro[5])
-console.log(tabuleiro[6], tabuleiro[7], tabuleiro[8])
+// console.table(tabuleiro)
+// console.log(tabuleiro[0], tabuleiro[1], tabuleiro[2])
+// console.log(tabuleiro[3], tabuleiro[4], tabuleiro[5])
+// console.log(tabuleiro[6], tabuleiro[7], tabuleiro[8])
 
 
