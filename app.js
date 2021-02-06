@@ -12,13 +12,14 @@ var tabuleiro = [
     'L2C1', 'L2C2', 'L2C3', 
     'L3C1', 'L3C2', 'L3C3'
 ]
-
 var cels = document.querySelectorAll('.cels')
-
+var maxJogMaq = 0
 var resultadoJogo = 0
-
 var xis = "imagens/xis.png"
 var bola = "imagens/bola.png"
+
+
+
 
 function addouRemoverEventoClik(event) {
     cels[0].setAttribute('class', event)
@@ -43,10 +44,13 @@ function adicionaXO(celula, xo) {
 
 function ganhador() {
     conferirGanhador()
-    // if (resultadoJogo == 0) {
-    //     tempomaq()
-    // }else{
-    // }
+    if (resultadoJogo == 1) {
+        console.log('perdeuuuuuu')
+    } else if (resultadoJogo == 2){
+        console.log('ganhouuuuu')
+    }else{
+        tempomaq()
+    }
 }
 
 function atualizaTabuleiroX(pos, xo) {
@@ -115,19 +119,23 @@ function tempomaq() {
     setTimeout(jogadaMaquina, 500)
 }
 
+
 function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
     addouRemoverEventoClik('clik')
     console.log(ran)
-    if (tabuleiro[ran] === 'o') {
-        jogadaMaquina()
-    } else if (tabuleiro[ran] === 'x') {
-        jogadaMaquina()
-    } else {
-        adicionaXO(cels[ran], bola)
-        tabuleiro[ran] = 'o'
-        atualizaTabuleiroX(ran, 'o')
+    if (maxJogMaq < 4) {
+        if (tabuleiro[ran] === 'o') {
+            jogadaMaquina()
+        } else if (tabuleiro[ran] === 'x') {
+            jogadaMaquina()
+        } else {
+            adicionaXO(cels[ran], bola)
+            tabuleiro[ran] = 'o'
+            atualizaTabuleiroX(ran, 'o')
+            conferirGanhador()
+            maxJogMaq++
+        }
     }
-
 }
 
 // function jogadaMaquina2() {
@@ -168,79 +176,79 @@ function conferirGanhador() {
     if (tabuleiro[0] == tabuleiro[1] && tabuleiro[0] ==
         tabuleiro[2] && tabuleiro[1] == tabuleiro[2]) {
         if (tabuleiro[0] && tabuleiro[1] && tabuleiro[2] == 'o') {
-            console.log('o GANHOU LINHA 1')
             resultadoJogo = 1
+            console.log('o GANHOU LINHA 1')
         } else {
-            console.log('x GANHOU LINHA 1')
             resultadoJogo = 2
+            console.log('x GANHOU LINHA 1')
         }
     } else if (tabuleiro[3] == tabuleiro[4] && tabuleiro[3] ==
         tabuleiro[5] && tabuleiro[4] == tabuleiro[5]) {
         if (tabuleiro[3] && tabuleiro[4] && tabuleiro[5] == 'o') {
-            console.log('o GANHOU LINHA 2')
             resultadoJogo = 1
+            console.log('o GANHOU LINHA 2')
         } else {
-            console.log('x GANHOU LINHA 2')
             resultadoJogo = 2
+            console.log('x GANHOU LINHA 2')
         }
     } else if (tabuleiro[6] == tabuleiro[7] && tabuleiro[6] ==
         tabuleiro[8] && tabuleiro[7] == tabuleiro[8]) {
         if (tabuleiro[6] && tabuleiro[7] && tabuleiro[8] == 'o') {
-            console.log('o GANHOU LINHA 3')
             resultadoJogo = 1
+            console.log('o GANHOU LINHA 3')
         } else {
-            console.log('x GANHOU LINHA 3')
             resultadoJogo = 2
+            console.log('x GANHOU LINHA 3')
         }
     } else if (tabuleiro[0] == tabuleiro[3] && tabuleiro[0] ==
         tabuleiro[6] && tabuleiro[3] == tabuleiro[6]) {
         if (tabuleiro[0] && tabuleiro[3] && tabuleiro[6] == 'o') {
-            console.log('o GANHOU coluna 1')
             resultadoJogo = 1
+            console.log('o GANHOU coluna 1')
         } else {
-            console.log('x GANHOU coluna 1')
             resultadoJogo = 2
+            console.log('x GANHOU coluna 1')
         }
     } else if (tabuleiro[1] == tabuleiro[4] && tabuleiro[1] ==
         tabuleiro[7] && tabuleiro[4] == tabuleiro[7]) {
-        if (tabuleiro[1] && tabuleiro[4] && tabuleiro[7] == 'o') {
+            if (tabuleiro[1] && tabuleiro[4] && tabuleiro[7] == 'o') {
+                resultadoJogo = 1
             console.log('o GANHOU coluna 2')
-            resultadoJogo = 1
         } else {
-            console.log('x GANHOU coluna 2')
             resultadoJogo = 2
+            console.log('x GANHOU coluna 2')
         }
     } else if (tabuleiro[2] == tabuleiro[5] && tabuleiro[2] ==
         tabuleiro[8] && tabuleiro[5] == tabuleiro[8]) {
         if (tabuleiro[2] && tabuleiro[5] && tabuleiro[8] == 'o') {
-            console.log('o GANHOU coluna 3')
             resultadoJogo = 1
+            console.log('o GANHOU coluna 3')
         } else {
-            console.log('x GANHOU coluna 3')
             resultadoJogo = 2
+            console.log('x GANHOU coluna 3')
         }
     } else if (tabuleiro[0] == tabuleiro[4] && tabuleiro[0] ==
         tabuleiro[8] && tabuleiro[4] == tabuleiro[8]) {
         if (tabuleiro[0] && tabuleiro[4] && tabuleiro[8] == 'o') {
-            console.log('o GANHOU diagonal superior esquerda')
             resultadoJogo = 1
+            console.log('o GANHOU diagonal superior esquerda')
         } else {
-            console.log('x GANHOU diagonal superior esquerda')
             resultadoJogo = 2
+            console.log('x GANHOU diagonal superior esquerda')
         }
     } else if (tabuleiro[6] == tabuleiro[4] && tabuleiro[6] ==
         tabuleiro[2] && tabuleiro[4] == tabuleiro[2]) {
         if (tabuleiro[6] && tabuleiro[4] && tabuleiro[2] == 'o') {
-            console.log('o GANHOU diagonal superior direita')
             resultadoJogo = 1
+            console.log('o GANHOU diagonal superior direita')
         } else {
-            console.log('x GANHOU diagonal superior direita')
             resultadoJogo = 2
+            console.log('x GANHOU diagonal superior direita')
         }
-    } else {
-       tempomaq()
+    } //else {
+      // tempomaq()
         // jogadaMaquina()
-    }
+    //}
 }
 
 // console.log(conferirGanhador())
