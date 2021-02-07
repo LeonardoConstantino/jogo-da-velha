@@ -9,9 +9,15 @@
 
 .naoclik{
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .clik{
     pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .centro {
@@ -35,16 +41,6 @@ section {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.76);
 }
 
-/* #tab{
-    width: 500px;
-    height: 500px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-} */
-
 img {
     width: 90%;
 }
@@ -62,38 +58,6 @@ img {
     border: solid 2px #293F71;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.76);
 }
-
-/* 
-#tab div {
-    width: 145.5px;
-    height: 145.5px;
-    background-color: #d4f0f0;
-    text-align: center;
-}
-
-.lin1 {
-    display: inline-block;
-    margin-bottom: 25px;
-}
-
-.lin2 {
-    display: inline-block;
-}
-
-.lin3 {
-    display: inline-block;
-    margin-top: 25px;
-}
-
-.col1 {
-    margin-right: 21px;
-}
-
-.col2 {}
-
-.col3 {
-    margin-left: 21px;
-}*/
 
 #cel0 {
     border-right: solid 3px #293F71;
@@ -207,4 +171,31 @@ img {
     height: 166px;
     align-items: center;
     justify-content: space-between;
+}
+
+.animaimg {
+    animation-name: anima;
+    animation-duration: 0.3s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes anima {
+    0% {
+        width: 80%;
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    75% {}
+
+    100% {
+        transform: rotate(-5deg);
+        width: 90%;
+    }
 }
