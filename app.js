@@ -18,20 +18,24 @@ var resultadoJogo = 0
 var xis = "imagens/xis.png"
 var bola = "imagens/bola.png"
 
-
-
-
-function addouRemoverEventoClik(event) {
-    cels[0].setAttribute('class', event)
-    cels[1].setAttribute('class', event)
-    cels[2].setAttribute('class', event)
-    cels[3].setAttribute('class', event)
-    cels[4].setAttribute('class', event)
-    cels[5].setAttribute('class', event)
-    cels[6].setAttribute('class', event)
-    cels[7].setAttribute('class', event)
-    cels[8].setAttribute('class', event)
+function animaGanhador(n1, n2, n3) {
+    cels[n1].setAttribute('class', 'animaimg')
+    cels[n2].setAttribute('class', 'animaimg')
+    cels[n3].setAttribute('class', 'animaimg')
 }
+
+
+// function addouRemoverEventoClik(event) {
+//     cels[0].setAttribute('class', event)
+//     cels[1].setAttribute('class', event)
+//     cels[2].setAttribute('class', event)
+//     cels[3].setAttribute('class', event)
+//     cels[4].setAttribute('class', event)
+//     cels[5].setAttribute('class', event)
+//     cels[6].setAttribute('class', event)
+//     cels[7].setAttribute('class', event)
+//     cels[8].setAttribute('class', event)
+// }
 
 
 function adicionaXO(celula, xo) {
@@ -39,6 +43,7 @@ function adicionaXO(celula, xo) {
     img.setAttribute("src", xo)
     celula.appendChild(img)
     celula.setAttribute('class', 'naoclik')
+    img.setAttribute('class', 'animaimg')
 
 }
 
@@ -49,7 +54,7 @@ function ganhador() {
     } else if (resultadoJogo == 2){
         console.log('ganhouuuuu')
     }else{
-        tempomaq()
+        setTimeout(jogadaMaquina, 500)
     }
 }
 
@@ -114,14 +119,10 @@ function x8(cel = '8') {
 
 
 
-function tempomaq() {
-    addouRemoverEventoClik('naoclik')
-    setTimeout(jogadaMaquina, 500)
-}
+
 
 
 function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
-    addouRemoverEventoClik('clik')
     console.log(ran)
     if (maxJogMaq < 4) {
         if (tabuleiro[ran] === 'o') {
@@ -138,44 +139,14 @@ function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
     }
 }
 
-// function jogadaMaquina2() {
-//     console.log(ran2)
-//     if(tabuleiro[ran2] == 'o'){
-//         jogadaMaquina2()
-//     }else if (tabuleiro[ran2] == 'x'){
-//         jogadaMaquina2()
-//     }else{
-//         tabuleiro[ran2] = 'x'
-//         conferirGanhador()
-//         // jogadaMaquina()
-//     }
-// }
 
-// tabuleiro[4] = 'x'
-// tabuleiro[1] = 'o'
-// tabuleiro[3] = 'x'
-// tabuleiro[8] = 'o'
-// tabuleiro[5] = 'x'
-// tabuleiro[6] = 'o'
-// tabuleiro[0] = 'x'
-// tabuleiro[2] = 'o'
-// tabuleiro[7] = 'x'
-
-// function conferirGanhador(){
-//     if (tabuleiro[0] && tabuleiro[1] && tabuleiro[2] === 'x') {
-//         console.log('x GANHOU LINHA 1')
-//     }else if (tabuleiro[0] && tabuleiro[1] && tabuleiro[3] === 'o') {
-//         console.log('o GANHOU LINHA 1')
-//     }else{
-//         tempomaq()
-//     }
-// }
 
 
 function conferirGanhador() {
     if (tabuleiro[0] == tabuleiro[1] && tabuleiro[0] ==
         tabuleiro[2] && tabuleiro[1] == tabuleiro[2]) {
         if (tabuleiro[0] && tabuleiro[1] && tabuleiro[2] == 'o') {
+            animaGanhador(0, 1, 2,)
             resultadoJogo = 1
             console.log('o GANHOU LINHA 1')
         } else {
@@ -245,10 +216,7 @@ function conferirGanhador() {
             resultadoJogo = 2
             console.log('x GANHOU diagonal superior direita')
         }
-    } //else {
-      // tempomaq()
-        // jogadaMaquina()
-    //}
+    }
 }
 
 // console.log(conferirGanhador())
