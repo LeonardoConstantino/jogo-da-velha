@@ -163,6 +163,7 @@ function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
             tabuleiro[ran] = 'o'
             atualizaTabuleiroX(ran, 'o')
             conferirGanhador()
+            cels[ran].setAttribute("onclick", '')
             maxJogMaq++
         }
     }
