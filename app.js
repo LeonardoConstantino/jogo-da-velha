@@ -175,7 +175,7 @@ function jogadaMaquina(ran = Math.floor(Math.random() * 9)) {
 function conferirGanhador() {
     if (tabuleiro[0] == tabuleiro[1] && tabuleiro[0] ==
         tabuleiro[2] && tabuleiro[1] == tabuleiro[2]) {
-            animaGanhador(0, 1, 2,)
+            // animaGanhador(0, 1, 2,)
         if (tabuleiro[0] && tabuleiro[1] && tabuleiro[2] == 'o') {
             resultadoJogo = 1
             console.log('o GANHOU LINHA 1')
