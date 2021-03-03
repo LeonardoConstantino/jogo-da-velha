@@ -14,6 +14,7 @@ var tabuleiro = [
 ]
 var cels = document.querySelectorAll('.cels')
 var maxJogMaq = 0
+var numJogadas = 0
 var resultadoJogo = 0
 var xis = "imagens/xis.png"
 var bola = "imagens/bola.png"
@@ -55,6 +56,16 @@ function ganhador() {
         console.log('ganhouuuuu')
     }else{
         setTimeout(jogadaMaquina, 500)
+        numJogadas++
+        checarEmpate()
+    }
+}
+function checarEmpate() {
+    if (numJogadas == 5) {
+        animaGanhador(0, 1, 2)
+        animaGanhador(3, 4, 5)
+        animaGanhador(6, 7, 8)
+        reiniciaJogo()
     }
 }
 
@@ -177,6 +188,7 @@ function reiniciaJogo() {
     setTimeout(() => {
         resultadoJogo = 0
         maxJogMaq = 0
+        numJogadas = 0
         // conferirGanhador()
         removeImagens()
         mudarClass('cels')
@@ -190,6 +202,7 @@ function reiniciaJogo() {
 
 
 function conferirGanhador() {
+    
     if (tabuleiro[0] == tabuleiro[1] && tabuleiro[0] ==
         tabuleiro[2] && tabuleiro[1] == tabuleiro[2]) {
             if (tabuleiro[0] && tabuleiro[1] && tabuleiro[2] == 'o') {
