@@ -65,7 +65,7 @@ function atualizaTabuleiroX(pos, xo) {
 
 function x0(cel = '0') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -73,7 +73,7 @@ function x0(cel = '0') {
 
 function x1(cel = '1') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -81,7 +81,7 @@ function x1(cel = '1') {
 
 function x2(cel = '2') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -89,7 +89,7 @@ function x2(cel = '2') {
 
 function x3(cel = '3') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -97,7 +97,7 @@ function x3(cel = '3') {
 
 function x4(cel = '4') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -105,7 +105,7 @@ function x4(cel = '4') {
 
 function x5(cel = '5') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -113,7 +113,7 @@ function x5(cel = '5') {
 
 function x6(cel = '6') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -121,7 +121,7 @@ function x6(cel = '6') {
 
 function x7(cel = '7') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -129,7 +129,7 @@ function x7(cel = '7') {
 
 function x8(cel = '8') {
     mudarClass('naoclik')
-    // cels[cel].setAttribute("onclick", '')
+    cels[cel].setAttribute("onclick", '')
     atualizaTabuleiroX(cel, 'x')
     adicionaXO(cels[cel], xis)
     ganhador()
@@ -168,16 +168,19 @@ function removeImagens() {
 
 function addOnClik() {
     for (let i = 0; i < cels.length; i++) {
-        cels[i].setAttribute("onclick", `x${i}`)
+        cels[i].setAttribute("onclick", `x${i}()`)
     }
 }
 
 function reiniciaJogo() {
+    tabuleiro = ['L1C1', 'L1C2', 'L1C3', 'L2C1', 'L2C2', 'L2C3', 'L3C1', 'L3C2', 'L3C3']
     setTimeout(() => {
+        resultadoJogo = 0
+        maxJogMaq = 0
+        // conferirGanhador()
         removeImagens()
         mudarClass('cels')
         addOnClik()
-        tabuleiro = []
     }, 5000);
 }
 
@@ -198,6 +201,7 @@ function conferirGanhador() {
             }
             animaGanhador(0, 1, 2,)
             reiniciaJogo()
+            return
     } else if (tabuleiro[3] == tabuleiro[4] && tabuleiro[3] ==
         tabuleiro[5] && tabuleiro[4] == tabuleiro[5]) {
             if (tabuleiro[3] && tabuleiro[4] && tabuleiro[5] == 'o') {
